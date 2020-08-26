@@ -46,12 +46,12 @@ public class NBody{
       StdDraw.show();
       StdDraw.pause(10);
     }
-    StdOut.printf("%d\n", planets.length);
-    StdOut.printf("%.2e\n", radius);
-    for (int i = 0; i < planets.length; i++) {
+    StdOut.printf("%d\n", planetArray.length);
+    StdOut.printf("%.2e\n", universeRadius);
+    for (int i = 0; i < planetArray.length; i++) {
       StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
-                    planets[i].xxPos, planets[i].yyPos, planets[i].xxVel,
-                    planets[i].yyVel, planets[i].mass, planets[i].imgFileName);
+                    planetArray[i].xxPos, planetArray[i].yyPos, planetArray[i].xxVel,
+                    planetArray[i].yyVel, planetArray[i].mass, planetArray[i].imgFileName);
 }
   }
 }
