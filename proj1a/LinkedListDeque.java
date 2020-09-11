@@ -27,14 +27,18 @@ public class LinkedListDeque<T> {
         sentinel.next = new StuffNode(sentinel, item, sentinel.next);
         if (sentinel.prev == sentinel) {
             sentinel.prev = sentinel.next;
+        } else {
+            sentinel.next.next.prev = sentinel.next;
         }
         size += 1;
     }
 
     public void addLast(T item) {
-        sentinel.prev = new StuffNode(sentinel.prev, item, sentinel);
+        sentinel.prev = new StuffNode(sentinel.prev, item, sentinel.prev.next);
         if (sentinel.next == sentinel) {
             sentinel.next = sentinel.prev;
+        } else {
+            sentinel.prev.prev.next = sentinel.prev;
         }
         size += 1;
     }
@@ -61,10 +65,11 @@ public class LinkedListDeque<T> {
             return null;
         }
         StuffNode temp = sentinel.next;
+        T tempItem = temp.item;
         sentinel.next = temp.next;
         temp.next.prev = temp.prev;
         size -= 1;
-        return temp.item;
+        return tempItem;
     }
 
     public T removeLast() {
@@ -72,10 +77,11 @@ public class LinkedListDeque<T> {
             return null;
         }
         StuffNode temp = sentinel.prev;
+        T tempItem = temp.item;
         sentinel.prev = temp.prev;
         temp.prev.next = temp.next;
         size -= 1;
-        return temp.item;
+        return tempItem;
     }
 
     public T get(int index) {
