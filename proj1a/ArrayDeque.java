@@ -54,7 +54,7 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    public void resize(int newcap) {
+    private void resize(int newcap) {
         T[] newa = (T[]) new Object[newcap];
         int first = plusOne(nextFirst);
         int last = minusOne(nextLast);
@@ -78,6 +78,7 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         int index = plusOne(nextFirst);
+        nextFirst = plusOne(nextFirst);
         size -= 1;
         T temp = a[index];
         a[index] = null;
@@ -87,6 +88,7 @@ public class ArrayDeque<T> {
     public T removeLast() {
         int index = minusOne(nextLast);
         size -= 1;
+        nextLast = minusOne(nextLast);
         T temp = a[index];
         a[index] = null;
         return temp;

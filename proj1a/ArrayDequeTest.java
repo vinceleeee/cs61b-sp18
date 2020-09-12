@@ -29,30 +29,33 @@ class ArrayDequeTest {
         boolean passed = checkEmpty(true, a.isEmpty());
 
         a.addFirst(0);
-        passed = passed && checkSize(a.size(),1);
+        passed = passed && checkSize(a.size(), 1);
         a.addFirst(1);
-        passed = passed && checkSize(a.size(),2);
+        passed = passed && checkSize(a.size(), 2);
         a.addFirst(2);
-        passed = passed && checkSize(a.size(),3);
+        passed = passed && checkSize(a.size(), 3);
         a.addFirst(3);
-        passed = passed && checkSize(a.size(),4);
-        System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " " + a.get(3) + " " + a.get(4) + " " +
-                a.get(5) + " " + a.get(6) + " " + a.get(7));
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
+        passed = passed && checkSize(a.size(), 4);
+        System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " "
+                + a.get(3) + " " + a.get(4) + " "
+                + a.get(5) + " " + a.get(6) + " " + a.get(7));
         a.addFirst(3);
         a.addFirst(3);
         a.addFirst(3);
         a.addFirst(3);
         a.addFirst(3);
-        System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " " + a.get(3) + " " + a.get(4) + " " +
-                a.get(5) + " " + a.get(6) + " " + a.get(7)+ " " + a.get(8)+ " " + a.get(9)+ " " + a.get(10));
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
+        System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " "
+                + a.get(3) + " " + a.get(4) + " "
+                + a.get(5) + " " + a.get(6) + " " + a.get(7) + " " + a.get(8) + " "
+                + a.get(9) + " " + a.get(10));
 
     }
 
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         test1();
     }
 }
