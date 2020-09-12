@@ -77,6 +77,9 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+        if (size < capacity / 4 && capacity > 8) {
+            resize(capacity / 2);
+        }
         int index = plusOne(nextFirst);
         nextFirst = plusOne(nextFirst);
         size -= 1;
@@ -88,6 +91,9 @@ public class ArrayDeque<T> {
     public T removeLast() {
         if (size == 0) {
             return null;
+        }
+        if (size < capacity / 4 && capacity > 8) {
+            resize(capacity / 2);
         }
         int index = minusOne(nextLast);
         size -= 1;
