@@ -29,12 +29,18 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
+        if (nextFirst == nextLast) {
+            resize(capacity * 2);
+        }
         a[nextFirst] = item;
         nextFirst = minusOne(nextFirst);
         size += 1;
     }
 
     public void addLast(T item) {
+        if (nextFirst == nextLast) {
+            resize(capacity * 2);
+        }
         a[nextLast] = item;
         nextLast = plusOne(nextLast);
         size += 1;
@@ -50,13 +56,13 @@ public class ArrayDeque<T> {
 
     public void resize(int newcap) {
         T[] newa = (T[]) new Object[newcap];
-        int First = plusOne(nextFirst);
-        int Last = minusOne(nextLast);
-        if (First > Last) {
-            System.arraycopy(a, First, newa, 0, capacity - First);
-            System.arraycopy(a, 0, newa, capacity - First, Last);
+        int first = plusOne(nextFirst);
+        int last = minusOne(nextLast);
+        if (first > last) {
+            System.arraycopy(a, first, newa, 0, capacity - first);
+            System.arraycopy(a, 0, newa, capacity - first, last + 1);
         } else {
-            System.arraycopy(a, First, newa, 0, Last - First + 1);
+            System.arraycopy(a, first, newa, 0, last - first + 1);
         }
         capacity = newcap;
         nextFirst = capacity - 1;

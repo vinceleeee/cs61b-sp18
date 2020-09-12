@@ -38,14 +38,17 @@ class ArrayDequeTest {
         passed = passed && checkSize(a.size(),4);
         System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " " + a.get(3) + " " + a.get(4) + " " +
                 a.get(5) + " " + a.get(6) + " " + a.get(7));
-        a.resize(16);
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
+        a.addFirst(3);
         System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " " + a.get(3) + " " + a.get(4) + " " +
-                a.get(5) + " " + a.get(6) + " " + a.get(7));
-        int b = a.removeLast();
-        passed = passed && checkSize(a.size(),3) && b==0;
-        int c = a.removeFirst();
-        passed = passed && checkSize(a.size(),2) && c==3;
-        printTestStatus(passed);
+                a.get(5) + " " + a.get(6) + " " + a.get(7)+ " " + a.get(8)+ " " + a.get(9)+ " " + a.get(10));
+
     }
 
 
