@@ -77,20 +77,32 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
         int index = plusOne(nextFirst);
         nextFirst = plusOne(nextFirst);
         size -= 1;
         T temp = a[index];
         a[index] = null;
+        if (size < capacity / 4) {
+            resize(capacity / 2);
+        }
         return temp;
     }
 
     public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
         int index = minusOne(nextLast);
         size -= 1;
         nextLast = minusOne(nextLast);
         T temp = a[index];
         a[index] = null;
+        if (size < capacity / 4) {
+            resize(capacity / 2);
+        }
         return temp;
     }
 

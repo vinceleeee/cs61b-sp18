@@ -51,6 +51,18 @@ class ArrayDequeTest {
                 + a.get(3) + " " + a.get(4) + " "
                 + a.get(5) + " " + a.get(6) + " " + a.get(7) + " " + a.get(8) + " "
                 + a.get(9) + " " + a.get(10));
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
+        a.removeLast();
 
     }
 
