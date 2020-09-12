@@ -58,11 +58,8 @@ public class ArrayDeque<T> {
         T[] newa = (T[]) new Object[newcap];
         int first = plusOne(nextFirst);
         int last = minusOne(nextLast);
-        if (first > last) {
-            System.arraycopy(a, first, newa, 0, capacity - first);
-            System.arraycopy(a, 0, newa, capacity - first, last + 1);
-        } else {
-            System.arraycopy(a, first, newa, 0, last - first + 1);
+        for (int i = 0; i < size; i++) {
+            newa[i] = get(i);
         }
         capacity = newcap;
         nextFirst = capacity - 1;
@@ -77,6 +74,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
         int index = plusOne(nextFirst);
         nextFirst = plusOne(nextFirst);
         size -= 1;
@@ -86,6 +86,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
         int index = minusOne(nextLast);
         size -= 1;
         nextLast = minusOne(nextLast);
@@ -95,10 +98,11 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        int realIndex = nextFirst;
-        for (int i = 0; i <= index; i++) {
-            realIndex = plusOne(realIndex);
+        if (index >= size || index < 0) {
+            return null;
         }
+        int realIndex = plusOne(nextFirst);
+        realIndex = (realIndex + index) % capacity;
         return a[realIndex];
     }
 }

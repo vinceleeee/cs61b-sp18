@@ -39,14 +39,14 @@ class ArrayDequeTest {
         System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " "
                 + a.get(3) + " " + a.get(4) + " "
                 + a.get(5) + " " + a.get(6) + " " + a.get(7));
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
-        a.addFirst(3);
+        a.addFirst(4);
+        a.addFirst(5);
+        a.addFirst(6);
+        a.addFirst(7);
+        a.addFirst(8);
+        a.addFirst(9);
+        a.addFirst(10);
+        a.addFirst(11);
         System.out.print(a.get(0) + " " + a.get(1) + " " + a.get(2) + " "
                 + a.get(3) + " " + a.get(4) + " "
                 + a.get(5) + " " + a.get(6) + " " + a.get(7) + " " + a.get(8) + " "
