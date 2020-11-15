@@ -9,6 +9,9 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
+        if (word == null) {
+            return false;
+        }
         Deque<Character> characterDeque = wordToDeque(word);
         return isPalindrome(characterDeque);
     }
@@ -22,6 +25,9 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc) {
+        if (word == null) {
+            return false;
+        }
         return isPalindrome(wordToDeque(word), cc);
     }
 

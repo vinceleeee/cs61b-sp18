@@ -25,4 +25,14 @@ public class TestPalindrome {
     public void testIsPalidrome2() {
         assertTrue(palindrome.isPalindrome("falaf"));
     }
+
+    @Test
+    public void testIsPalidrome3() {
+        assertFalse(palindrome.isPalindrome("Ada"));
+    }
+
+    @Test
+    public void testIsPalidrome4() {
+        assertFalse(palindrome.isPalindrome(null));
+    }
 }
