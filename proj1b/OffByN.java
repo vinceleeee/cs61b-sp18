@@ -8,10 +8,6 @@ public class OffByN implements CharacterComparator {
 
     @Override
     public boolean equalChars(char x, char y) {
-        if (x - y == offset || x - y == -offset) {
-            return true;
-        } else {
-            return false;
-        }
+        return x - y == offset || x - y == -offset;
     }
 }

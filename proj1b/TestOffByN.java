@@ -11,11 +11,11 @@ public class TestOffByN {
     // Your tests go here.
     @Test
     public void testOBO1() {
-        assertTrue(offByFive.equalChars('a','f'));
+        assertTrue(offByFive.equalChars('a', 'f'));
     }
 
     @Test
     public void testOBO2() {
-        assertFalse(offByFive.equalChars('a','c'));
+        assertFalse(offByFive.equalChars('a', 'c'));
     }
 }
