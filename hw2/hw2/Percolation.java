@@ -4,10 +4,11 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
 
-    boolean[][] siteArray;
-    WeightedQuickUnionUF qu;
-    int size;
-    int count;
+    private boolean[][] siteArray;
+    private WeightedQuickUnionUF qu;
+    private WeightedQuickUnionUF qu2;
+    private int size;
+    private int count;
 
     private final int top;
     private final int bottom;
@@ -19,10 +20,11 @@ public class Percolation {
             count = 0;
             siteArray = new boolean[N][N];
             qu = new WeightedQuickUnionUF(size * size + 2);
+            qu2 = new WeightedQuickUnionUF(size * size + 2);
             top = size * size;
             bottom = size * size + 1;
         }
-    }// create N-by-N grid, with all sites initially blocked
+    } // create N-by-N grid, with all sites initially blocked
 
     private int xyTo1D(int r, int c) {
         return r * size + c;
@@ -38,23 +40,29 @@ public class Percolation {
             count += 1;
             if (row == 0) {
                 qu.union(top, xyTo1D(row, col));
+                qu2.union(top, xyTo1D(row, col));
             }
             if (row > 0 && siteArray[row - 1][col]) {
                 qu.union(xyTo1D(row, col), xyTo1D(row - 1, col));
+                qu2.union(xyTo1D(row, col), xyTo1D(row - 1, col));
             }
             if (row < size - 1 && siteArray[row + 1][col]) {
                 qu.union(xyTo1D(row, col), xyTo1D(row + 1, col));
+                qu2.union(xyTo1D(row, col), xyTo1D(row + 1, col));
             }
             if (col > 0 && siteArray[row][col - 1]) {
                 qu.union(xyTo1D(row, col), xyTo1D(row, col - 1));
+                qu2.union(xyTo1D(row, col), xyTo1D(row, col - 1));
             }
             if (col < size - 1 && siteArray[row][col + 1]) {
                 qu.union(xyTo1D(row, col), xyTo1D(row, col + 1));
+                qu2.union(xyTo1D(row, col), xyTo1D(row, col + 1));
             }
             if (row == size - 1) {
                 if (qu.connected(xyTo1D(row, col), top)) {
                     qu.union(xyTo1D(row, col), bottom);
                 }
+                qu2.union(xyTo1D(row, col), bottom);
             }
         }
     }      // open the site (row, col) if it is not open already
@@ -77,7 +85,10 @@ public class Percolation {
         return count;
     }          // number of open sites
     public boolean percolates() {
-        return qu.connected(top, bottom);
-    }             // does the system percolate?
+        return qu2.connected(top, bottom);
+    }           // does the system percolate?
 
+    public static void main(String[] args) {
+
+    }  // use for unit testing (not required)
 }

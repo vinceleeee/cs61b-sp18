@@ -4,7 +4,7 @@ import edu.princeton.cs.introcs.StdRandom;
 import edu.princeton.cs.introcs.StdStats;
 
 public class PercolationStats {
-    double[] thresholds;
+    private double[] thresholds;
     public PercolationStats(int N, int T, PercolationFactory pf) {
         if (N <= 0 || T <= 0) {
             throw new IllegalArgumentException();
@@ -20,7 +20,7 @@ public class PercolationStats {
         }
 
 
-    }// perform T independent experiments on an N-by-N grid
+    } // perform T independent experiments on an N-by-N grid
     public double mean() {
         return StdStats.mean(thresholds);
     }                                            // sample mean of percolation threshold
