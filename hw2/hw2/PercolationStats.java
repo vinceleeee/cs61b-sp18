@@ -2,6 +2,7 @@ package hw2;
 
 import edu.princeton.cs.introcs.StdRandom;
 import edu.princeton.cs.introcs.StdStats;
+import edu.princeton.cs.introcs.Stopwatch;
 
 public class PercolationStats {
     private double[] thresholds;
@@ -34,4 +35,9 @@ public class PercolationStats {
         return (mean() + 1.96 * stddev() / Math.sqrt(thresholds.length));
     }                                // high endpoint of 95% confidence interval
 
+    public static void main(String[] args) {
+        Stopwatch sw = new Stopwatch();
+        PercolationStats test = new PercolationStats(40, 10000, new PercolationFactory());
+        System.out.println(sw.elapsedTime());
+    }
 }

@@ -1,5 +1,7 @@
 public class test {
+
     public static void main(String[] args) {
-        System.out.println(5 + 10);
+      Deck dingie = new Deck();
+      dingie.cards[3] = 3;
     }
 }

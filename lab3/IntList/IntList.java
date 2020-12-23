@@ -114,7 +114,7 @@ public class IntList {
         } else if (A.rest == null) {
             return A;
         } else {
-            return IntList.dcatenate(IntList.reverse(A.rest), IntList.of(A.first));
+            return dcatenate(reverse(A.rest), of(A.first));
         }
     }
 

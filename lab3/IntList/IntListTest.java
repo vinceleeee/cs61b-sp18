@@ -76,10 +76,6 @@ public class IntListTest {
         IntList rev2 = IntList.reverse(L2);
         assertEquals(rev2, null);
 
-        IntList L3 = IntList.of(1, 2, 3);
-        IntList copyL = L3;
-        IntList rev3 = IntList.reverse(L3);
-        assertNotEquals(copyL, L3);
     }
 
     /** If you're running this from the command line, you'll need
