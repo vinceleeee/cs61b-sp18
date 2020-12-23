@@ -44,7 +44,7 @@ public class TestComplexOomage {
         for (int i = 0; i < N; i += 1) {
             params = new ArrayList<>();
             for (int j = 0; j < 8; j += 1) {
-                params.add((int) Math.random() * 255);
+                params.add((int) (Math.random() * 255));
             }
             deadlyList.add(new ComplexOomage(params));
         }

@@ -30,10 +30,6 @@ public class OomageTestUtility {
                 moreThan = true;
             }
         }
-        if (fewerThan || moreThan) {
-            return false;
-        } else {
-            return true;
-        }
+        return !fewerThan && !moreThan;
     }
 }
