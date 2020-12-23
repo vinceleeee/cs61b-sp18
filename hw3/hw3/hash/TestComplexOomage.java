@@ -39,12 +39,10 @@ public class TestComplexOomage {
     public void testWithDeadlyParams() {
         List<Oomage> deadlyList = new ArrayList<>();
         List<Integer> params;
-        int N = 10000;
-        int x = 1;
-        for (int i = 0; i < N; i += 1) {
+        for (int i = 1; i < 50; i += 1) {
             params = new ArrayList<>();
             for (int j = 0; j < i; j += 1) {
-                params.add(55);
+                params.add(1);
             }
             deadlyList.add(new ComplexOomage(params));
         }
