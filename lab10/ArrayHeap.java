@@ -163,13 +163,8 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      */
     @Override
     public T removeMin() {
-        if (contents.length < 2) {
+        if (size < 1) {
             return null;
-        } else if (contents.length == 2) {
-            T temp = contents[1].myItem;
-            contents[1] = null;
-            size = 0;
-            return temp;
         } else {
             T temp = contents[1].myItem;
             swap(1, size);
